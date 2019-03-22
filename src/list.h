@@ -6,16 +6,16 @@
 
 class List {
     private:
-        int m_count;
-        int *m_items;
+        int m_count = 0;
+        int *m_items = nullptr;
 
     public:
-        List();
-        ~List();
+        // List();
+        // ~List();
         int Get(int index);
         void Insert(int index, int val);
-        int Search(int val);
+        // int Search(int val);
         void Remove(int index);
-        int Count();
+        // int Count();
 };
 #endif // LIST_H

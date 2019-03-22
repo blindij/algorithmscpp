@@ -37,3 +37,6 @@ a.out
 
 # pdfs
 *.pdf
+
+#vscode
+.vscode/*

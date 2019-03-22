@@ -3,7 +3,10 @@ project(algorithms)
 
 set(CMAKE_CXX_STANDARD 14)
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
-set(GMOCK_HOME "/Users/bjornlin/local/googletest")
+if (DEFINED ENV{HOME})
+   set( HOME $ENV{HOME}) 
+endif()
+set(GMOCK_HOME "${HOME}/local/googletest")
 message("GMOCK_HOME: ${GMOCK_HOME}")
 
 include_directories(${GMOCK_HOME}/include)
