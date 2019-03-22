@@ -42,11 +42,18 @@ class ListTest: public testing::Test{
 
 };
 
-// Test thate List::Get()
+// Test that List::Get()
 TEST_F(ListTest, DoGet){
    EXPECT_EQ(testList.Get(0), 21);
    EXPECT_EQ(testList.Get(3), 35);
    EXPECT_EQ(testList.Get(2), 87);
    EXPECT_EQ(testList.Get(4), 92);
+}
+
+// Test List::Remove()
+TEST_F(ListTest, DoRemove){
+   EXPECT_EQ(testList.Get(3),35);
+   testList.Remove(3);
+   EXPECT_EQ(testList.Get(3),92);
 }
 #endif //ALGDAT_LIST

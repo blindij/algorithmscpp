@@ -60,3 +60,14 @@ void List::Remove(int index){
     // Remove copied array
     delete [] oldArray;
 }
+
+void List::Search(int val){
+    // Looping through the array elements
+    // return the array index if value is found
+    for (int i=0; i < m_count; ++i){
+        if (m_items[i] == val){
+            return i;
+        }
+    }
+    return -1;
+}
