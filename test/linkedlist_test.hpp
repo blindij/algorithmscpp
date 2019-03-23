@@ -63,4 +63,7 @@ TEST_F(ListTest, DoRemove){
 }
 
 // Test List::Search
+TEST_F(ListTest, DoSearch){
+   EXPECT_EQ(testList.Search(97),-1);   // Not found
+}
 #endif //ALGDAT_LIST
