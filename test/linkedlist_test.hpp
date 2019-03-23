@@ -42,6 +42,11 @@ class ListTest: public testing::Test{
 
 };
 
+// Test that List::Count()
+TEST_F(ListTest, DoCount){
+   EXPECT_EQ(testList.Count(),5);
+}
+
 // Test that List::Get()
 TEST_F(ListTest, DoGet){
    EXPECT_EQ(testList.Get(0), 21);
@@ -56,4 +61,6 @@ TEST_F(ListTest, DoRemove){
    testList.Remove(3);
    EXPECT_EQ(testList.Get(3),92);
 }
+
+// Test List::Search
 #endif //ALGDAT_LIST

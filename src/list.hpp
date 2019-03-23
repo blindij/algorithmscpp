@@ -2,6 +2,10 @@
 //
 #include "list.h"
 
+int List::Count(){
+    return m_count;
+}
+
 int List::Get(int index){
     // Check if the index is out of bound
     if (index < 0 || index > m_count)
@@ -61,7 +65,7 @@ void List::Remove(int index){
     delete [] oldArray;
 }
 
-void List::Search(int val){
+int List::Search(int val){
     // Looping through the array elements
     // return the array index if value is found
     for (int i=0; i < m_count; ++i){

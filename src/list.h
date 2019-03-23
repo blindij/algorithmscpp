@@ -14,8 +14,8 @@ class List {
         // ~List();
         int Get(int index);
         void Insert(int index, int val);
-        // int Search(int val);
+        int Search(int val);
         void Remove(int index);
-        // int Count();
+        int Count();
 };
 #endif // LIST_H
