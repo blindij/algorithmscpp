@@ -40,6 +40,7 @@ class ListTest: public testing::Test{
       public:
       List<int> testList;
       List<double> testList2;
+      List<std::string> testStrList;
 
 };
 
@@ -76,5 +77,14 @@ TEST_F(ListTest, DoInsertAndCount){
    testList2.Insert(2,0.45);
    testList2.Insert(3,0.314159E-19);
    EXPECT_EQ(testList2.Count(),4);
+}
+
+TEST_F(ListTest, DoStringInsertAndCount){
+   testStrList.Insert(0,"x");
+   testStrList.Insert(1,"a");
+   testStrList.Insert(2,"f");
+   testStrList.Insert(3,"c");
+   testStrList.Insert(4,"k");
+   EXPECT_EQ(testStrList.Count(),5);
 }
 #endif //ALGDAT_LIST
