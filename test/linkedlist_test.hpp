@@ -22,11 +22,12 @@ class ListTest: public testing::Test{
       void SetUp() override {
          // Code here will be called immediately after the 
          // constructor, right before each test.
-         testList.Insert(0,21);
-         testList.Insert(1,47);
-         testList.Insert(2,87);
-         testList.Insert(3,35);
-         testList.Insert(4,92);
+         testList.Insert(0,20);
+         testList.Insert(1,21);
+         testList.Insert(2,47);
+         testList.Insert(3,87);
+         testList.Insert(4,35);
+         testList.Insert(5,92);
       }
 
       void TearDown() override {
@@ -37,34 +38,34 @@ class ListTest: public testing::Test{
       // Objects declared here can be used by all tests in
       // the test case for Foo
       public:
-      List testList;
+      List<int> testList;
       // List testList2;
 
 };
 
 // Test that List::Count()
 TEST_F(ListTest, DoCount){
-   EXPECT_EQ(testList.Count(),5);
+   EXPECT_EQ(testList.Count(),6);
 }
 
 // Test that List::Get()
 TEST_F(ListTest, DoGet){
-   EXPECT_EQ(testList.Get(0), 21);
-   EXPECT_EQ(testList.Get(3), 35);
-   EXPECT_EQ(testList.Get(2), 87);
-   EXPECT_EQ(testList.Get(4), 92);
+   EXPECT_EQ(testList.Get(0), 20);
+   EXPECT_EQ(testList.Get(3), 87);
+   EXPECT_EQ(testList.Get(2), 47);
+   EXPECT_EQ(testList.Get(4), 35);
 }
 
 // Test List::Remove()
 TEST_F(ListTest, DoRemove){
-   EXPECT_EQ(testList.Get(3),35);
+   EXPECT_EQ(testList.Get(3),87);
    testList.Remove(3);
-   EXPECT_EQ(testList.Get(3),92);
+   EXPECT_EQ(testList.Get(3),35);
 }
 
 // Test List::Search
 TEST_F(ListTest, DoSearch){
    EXPECT_EQ(testList.Search(97),-1);   // Not found
-   EXPECT_EQ(testList.Search(87),2);    // An item that must be found
+   EXPECT_EQ(testList.Search(87),3);    // An item that must be found
 }
 #endif //ALGDAT_LIST

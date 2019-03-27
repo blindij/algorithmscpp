@@ -4,17 +4,22 @@
 
 #include <iostream>
 
+template <typename T>
 class List {
     private:
         int m_count = 0;
-        int *m_items = nullptr;
+        T *m_items = nullptr;
 
     public:
-        // List();
+        // List(T const& t_) : {
+        //    mcount = mcount+1;
+        //    m_items = new T[mcount];
+        //    m[mcount-1] = t_;
+        //};
         // ~List();
-        int Get(int index);
-        void Insert(int index, int val);
-        int Search(int val);
+        T const& Get(int index);
+        void Insert(int index, T const& t);
+        int Search(T const& t);
         void Remove(int index);
         int Count();
 };

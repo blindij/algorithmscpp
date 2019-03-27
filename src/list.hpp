@@ -2,17 +2,21 @@
 //
 #include "list.h"
 
-int List::Count(){
+template<typename T>
+int List<T>::Count(){
     return m_count;
 }
 
-int List::Get(int index){
+template<typename T>
+T const& List<T>::Get(int index){
     // Check if the index is out of bound
     if (index < 0 || index > m_count)
         return -1;
     return m_items[index];
 }
-void List::Insert(int index, int val){
+
+template<typename T>
+void List<T>::Insert(int index, T const& val){
     // Check if the index is out of bound
     if (index < 0 || index > m_count) return;
 
@@ -23,7 +27,7 @@ void List::Insert(int index, int val){
     m_count++;
 
     // Initialize a new array    
-    m_items = new int[m_count];
+    m_items = new T[m_count];
 
     // Fill the new array with inserted data
     for(int i=0, j=0; i < m_count; ++i){
@@ -39,7 +43,8 @@ void List::Insert(int index, int val){
     delete [] oldArray;
 }
 
-void List::Remove(int index){
+template<typename T>
+void List<T>::Remove(int index){
     // Check if the index is out of bound
     if (index < 0 || index > m_count)
         return;
@@ -65,7 +70,8 @@ void List::Remove(int index){
     delete [] oldArray;
 }
 
-int List::Search(int val){
+template<typename T>
+int List<T>::Search(T const& val){
     // Looping through the array elements
     // return the array index if value is found
     for (int i=0; i < m_count; ++i){
