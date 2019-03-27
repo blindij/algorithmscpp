@@ -39,7 +39,7 @@ class ListTest: public testing::Test{
       // the test case for Foo
       public:
       List<int> testList;
-      // List testList2;
+      List<double> testList2;
 
 };
 
@@ -67,5 +67,14 @@ TEST_F(ListTest, DoRemove){
 TEST_F(ListTest, DoSearch){
    EXPECT_EQ(testList.Search(97),-1);   // Not found
    EXPECT_EQ(testList.Search(87),3);    // An item that must be found
+}
+ 
+// Test List::Insert and List::Count
+TEST_F(ListTest, DoInsertAndCount){
+   testList2.Insert(0,0.75);
+   testList2.Insert(1,0.3E-6);
+   testList2.Insert(2,0.45);
+   testList2.Insert(3,0.314159E-19);
+   EXPECT_EQ(testList2.Count(),4);
 }
 #endif //ALGDAT_LIST

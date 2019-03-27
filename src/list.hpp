@@ -21,7 +21,7 @@ void List<T>::Insert(int index, T const& val){
     if (index < 0 || index > m_count) return;
 
     // Copy the current array
-    int * oldArray = m_items;
+    T * oldArray = m_items;
 
     // Increase the array length
     m_count++;
