@@ -22,12 +22,12 @@ class ListTest: public testing::Test{
       void SetUp() override {
          // Code here will be called immediately after the 
          // constructor, right before each test.
-         testList.Insert(0,20);
-         testList.Insert(1,21);
-         testList.Insert(2,47);
-         testList.Insert(3,87);
-         testList.Insert(4,35);
-         testList.Insert(5,92);
+         testList.Insert(20);
+         testList.Insert(21);
+         testList.Insert(47);
+         testList.Insert(87);
+         testList.Insert(35);
+         testList.Insert(92);
       }
 
       void TearDown() override {
@@ -60,7 +60,7 @@ TEST_F(ListTest, DoGet){
 // Test List::Remove()
 TEST_F(ListTest, DoRemove){
    EXPECT_EQ(testList.Get(3),87);
-   testList.Remove(3);
+   EXPECT_EQ(testList.Remove(87),true);
    EXPECT_EQ(testList.Get(3),35);
 }
 
@@ -72,19 +72,19 @@ TEST_F(ListTest, DoSearch){
  
 // Test List::Insert and List::Count
 TEST_F(ListTest, DoInsertAndCount){
-   testList2.Insert(0,0.75);
-   testList2.Insert(1,0.3E-6);
-   testList2.Insert(2,0.45);
-   testList2.Insert(3,0.314159E-19);
+   testList2.Insert(0.75);
+   testList2.Insert(0.3E-6);
+   testList2.Insert(0.45);
+   testList2.Insert(0.314159E-19);
    EXPECT_EQ(testList2.Count(),4);
 }
 
 TEST_F(ListTest, DoStringInsertAndCount){
-   testStrList.Insert(0,"x");
-   testStrList.Insert(1,"a");
-   testStrList.Insert(2,"f");
-   testStrList.Insert(3,"c");
-   testStrList.Insert(4,"k");
+   testStrList.Insert("x");
+   testStrList.Insert("a");
+   testStrList.Insert("f");
+   testStrList.Insert("c");
+   testStrList.Insert("k");
    EXPECT_EQ(testStrList.Count(),5);
 }
 #endif //ALGDAT_LIST
