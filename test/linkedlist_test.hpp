@@ -39,9 +39,6 @@ class ListTest: public testing::Test{
       // the test case for Foo
       public:
       List<int> testList;
-      List<double> testList2;
-      List<std::string> testStrList;
-
 };
 
 // Test that List::Count()
@@ -60,7 +57,7 @@ TEST_F(ListTest, DoGet){
 // Test List::Remove()
 TEST_F(ListTest, DoRemove){
    EXPECT_EQ(testList.Get(3),87);
-   EXPECT_EQ(testList.Remove(87),true);
+   EXPECT_TRUE(testList.Remove(87));
    EXPECT_EQ(testList.Get(3),35);
 }
 
@@ -70,21 +67,4 @@ TEST_F(ListTest, DoSearch){
    EXPECT_EQ(testList.Search(87),3);    // An item that must be found
 }
  
-// Test List::Insert and List::Count
-TEST_F(ListTest, DoInsertAndCount){
-   testList2.Insert(0.75);
-   testList2.Insert(0.3E-6);
-   testList2.Insert(0.45);
-   testList2.Insert(0.314159E-19);
-   EXPECT_EQ(testList2.Count(),4);
-}
-
-TEST_F(ListTest, DoStringInsertAndCount){
-   testStrList.Insert("x");
-   testStrList.Insert("a");
-   testStrList.Insert("f");
-   testStrList.Insert("c");
-   testStrList.Insert("k");
-   EXPECT_EQ(testStrList.Count(),5);
-}
 #endif //ALGDAT_LIST
