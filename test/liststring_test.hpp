@@ -51,4 +51,15 @@ TEST_F(ListStringTest, DoGet){
 }
 // TODO: Add a test that checks for a thrown exception: When Get()
 //       paramater is negative or larger than array size
+
+// Test List::Remove
+TEST_F(ListStringTest, DoStringRemove){
+   testList.Remove("c");
+   EXPECT_EQ(testList.Get(3),"k");
+}
+
+// Test List::Search()
+TEST_F(ListStringTest, DoStringSearch){
+   EXPECT_EQ(testList.Search("f"),2);
+}
 #endif //ALGDAT_LISTDOUBLE_TEST_HPP

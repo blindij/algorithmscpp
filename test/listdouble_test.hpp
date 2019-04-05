@@ -23,6 +23,10 @@ class ListDoubleTest: public testing::Test{
       void SetUp() override {
          // Code here will be called immediately after the 
          // constructor, right before each test.
+         testList.Insert(0.75);
+         testList.Insert(0.3E-6);
+         testList.Insert(0.45);
+         testList.Insert(0.314159E-19);
       }
 
       void TearDown() override {
@@ -39,10 +43,21 @@ class ListDoubleTest: public testing::Test{
 
 // Test List::Insert and List::Count
 TEST_F(ListDoubleTest, DoInsertAndCount){
-   testList.Insert(0.75);
-   testList.Insert(0.3E-6);
-   testList.Insert(0.45);
-   testList.Insert(0.314159E-19);
    EXPECT_EQ(testList.Count(),4);
+}
+
+// Test List::Get
+TEST_F(ListDoubleTest, DoGet){
+   EXPECT_EQ(testList.Get(1),0.3E-6);
+}
+
+// Test List::Remove
+TEST_F(ListDoubleTest, DoRemove){
+   EXPECT_TRUE(testList.Remove(0.314159E-19));
+}
+
+// Test List::Search
+TEST_F(ListDoubleTest, DoSearch){
+   EXPECT_EQ(testList.Search(0.45),2);
 }
 #endif //ALGDAT_LISTDOUBLE_TEST_HPP
