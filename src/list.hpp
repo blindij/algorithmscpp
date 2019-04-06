@@ -72,4 +72,17 @@ int List<T>::Search(T const& val){
     }
     return position;
 }
+
+template<typename T>
+void List<T>::Sort(){
+    for (int i=1; i < m_count; ++i){
+        T  v = m_items[i];
+        int j = i;
+        while ((Get(j-1) > v) && (j > 0 )){
+            m_items[j] = m_items[j-1];
+            j = j - 1;
+        }
+        m_items[j] = v;
+    }
+}
 #endif // LIST_HPP

@@ -67,4 +67,14 @@ TEST_F(ListTest, DoSearch){
    EXPECT_EQ(testList.Search(87),3);    // An item that must be found
 }
  
+ // Test List::Sort
+ TEST_F(ListTest,DoSort){
+    testList.Sort();
+    EXPECT_EQ(testList.Get(0),20);
+    EXPECT_EQ(testList.Get(1),21);
+    EXPECT_EQ(testList.Get(2),35);
+    EXPECT_EQ(testList.Get(3),47);
+    EXPECT_EQ(testList.Get(4),87);
+    EXPECT_EQ(testList.Get(5),92);
+ }
 #endif //ALGDAT_LIST
