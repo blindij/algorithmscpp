@@ -51,6 +51,20 @@ TEST_F(ListDoubleTest, DoGet){
    EXPECT_EQ(testList.Get(1),0.3E-6);
 }
 
+// Test List::Get throwing an exception
+TEST_F(ListDoubleTest, DoGetThrow){
+   try {
+      testList.Get(-1);
+      FAIL() << "Expected std::out_of_range";
+   }
+   catch(std::out_of_range const & err) {
+      EXPECT_EQ(err.what(),std::string("bad index, either negative or to large"));
+   }
+   catch(...){
+      FAIL() << "Expected std::out_of_range";
+   }
+}
+
 // Test List::Remove
 TEST_F(ListDoubleTest, DoRemove){
    EXPECT_TRUE(testList.Remove(0.314159E-19));
@@ -59,5 +73,14 @@ TEST_F(ListDoubleTest, DoRemove){
 // Test List::Search
 TEST_F(ListDoubleTest, DoSearch){
    EXPECT_EQ(testList.Search(0.45),2);
+}
+
+//  Test List::Sort
+TEST_F(ListDoubleTest, DoSort){
+   testList.Sort();
+   EXPECT_EQ(testList.Get(0),3.14159E-20);
+   EXPECT_EQ(testList.Get(1),3.0E-7);
+   EXPECT_EQ(testList.Get(2),0.45);
+   EXPECT_EQ(testList.Get(3),0.75);
 }
 #endif //ALGDAT_LISTDOUBLE_TEST_HPP

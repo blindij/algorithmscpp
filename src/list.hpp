@@ -13,7 +13,7 @@ template<typename T>
 T const& List<T>::Get(int index){
     // Check if the index is out of bound
     if (index < 0 || index > m_count)
-        throw  "bad index, either negative or to large";
+        throw  std::out_of_range("bad index, either negative or to large");
     return m_items[index];
 }
 
@@ -74,11 +74,11 @@ int List<T>::Search(T const& val){
 }
 
 template<typename T>
-void List<T>::Sort(){
+void List<T>::Sort(){   // insertion sort
     for (int i=1; i < m_count; ++i){
         T  v = m_items[i];
         int j = i;
-        while ((Get(j-1) > v) && (j > 0 )){
+        while ((j > 0) && (Get(j-1) > v)){
             m_items[j] = m_items[j-1];
             j = j - 1;
         }
