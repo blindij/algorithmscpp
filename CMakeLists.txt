@@ -7,15 +7,37 @@ set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 if (DEFINED ENV{HOME})
    set( HOME $ENV{HOME}) 
 endif()
-set(GMOCK_HOME "${HOME}/local/googletest")
-message("GMOCK_HOME: ${GMOCK_HOME}")
+#set(GMOCK_HOME "${HOME}/local/googletest")
+#message("GMOCK_HOME: ${GMOCK_HOME}")
 
-include_directories(${GMOCK_HOME}/include)
-include_directories(${CMAKE_SOURCE_DIR})
+#include_directories(${GMOCK_HOME}/include)
+#include_directories(${CMAKE_SOURCE_DIR})
 
-link_directories(${GMOCK_HOME}/lib)
+#link_directories(${GMOCK_HOME}/lib)
+option(ENABLE_UNIT_TESTS "Enable unit tests" ON)
+message(STATUS "Enable testing: ${ENABLE_UNIT_TESTS}")
+
+if(ENABLE_UNIT_TESTS)
+  include(FetchContent)
+  FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG release-1.8.0
+  )
+  FetchContent_GetProperties(googletest)
+  if(NOT googletest_POPULATED)
+    FetchContent_Populate(googletest)
+    # add the targets: gtest, gtest_main, gmock, gmock_main
+    add_subdirectory(
+      ${googletest_SOURCE_DIR}
+      ${googletest_BINARY_DIR}
+    )
+  endif()
+endif()
+
 include_directories(src)
 add_subdirectory(test)
+
 
 enable_testing()
 
