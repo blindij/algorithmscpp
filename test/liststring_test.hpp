@@ -62,4 +62,14 @@ TEST_F(ListStringTest, DoStringRemove){
 TEST_F(ListStringTest, DoStringSearch){
    EXPECT_EQ(testList.Search("f"),2);
 }
+
+// Test List::Sort()
+TEST_F(ListStringTest, DoStringSort){
+   testList.Sort();
+   EXPECT_EQ(testList.Get(0),"a");
+   EXPECT_EQ(testList.Get(1),"c");
+   EXPECT_EQ(testList.Get(2),"f");
+   EXPECT_EQ(testList.Get(3),"k");
+   EXPECT_EQ(testList.Get(4),"x");
+}
 #endif //ALGDAT_LISTDOUBLE_TEST_HPP
