@@ -16,3 +16,10 @@ include_directories(${CMAKE_SOURCE_DIR})
 link_directories(${GMOCK_HOME}/lib)
 include_directories(src)
 add_subdirectory(test)
+
+enable_testing()
+
+add_test(
+ NAME unit.x
+ COMMAND $<TARGET_FILE:unit.x>
+)
