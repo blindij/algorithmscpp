@@ -1,0 +1,17 @@
+os:
+  - linux
+
+language: cpp
+
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
+    env:
+      - CMAKE_VERSION="3.12.1"
+      - CMAKE_GENERATOR="Unix Makefiles"
+      - BUILDFLAGS="VERBOSE=1"
