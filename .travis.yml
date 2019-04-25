@@ -16,9 +16,11 @@ addons: &1
       - CMAKE_VERSION="3.12.1"
       - CMAKE_GENERATOR="Unix Makefiles"
       - BUILDFLAGS="VERBOSE=1"
+install:
+  - ./testing/dependencies/travis/cmake.sh
 
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      export CC=gcc-7 ;
-      export CXX=g++-7 ;
+      test -n $CC && unset CC && export CC=gcc-7;
+      test -n $CXX && unset CXX && export CXX=g++-7;
     fi
